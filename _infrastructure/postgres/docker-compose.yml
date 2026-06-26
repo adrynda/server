@@ -1,0 +1,18 @@
+# Opcjonalna wspólna baza - odkomentuj jeśli chcesz mieć też bazę "ogólną"
+
+# services:
+#   db:
+#     image: postgres:16
+#     restart: always
+#     container_name: db-shared
+#     environment:
+#       POSTGRES_USER: postgres
+#       POSTGRES_PASSWORD: postgres
+#       POSTGRES_DB: shared
+#     volumes:
+#       - db-data:/var/lib/postgresql/data
+#     networks:
+#       - web
+
+# volumes:
+#   db-data:
