@@ -3,5 +3,5 @@
 node_modules/
 vendor/
 .DS_Store
-projects
+#projects
 .idea
