@@ -18,3 +18,19 @@
 .PHONY: docker-%
 docker-%:
 	./scripts/docker/$*.sh
+
+.PHONY: projects-setup-%
+projects-setup-%:
+	./scripts/projects/setup.sh $*
+
+.PHONY: projects-build-%
+projects-build-%:
+	./scripts/projects/build.sh $*
+
+.PHONY: projects-up-%
+projects-up-%:
+	./scripts/projects/up.sh $*
+
+#.PHONY: projects-%
+#projects-%:
+#	./scripts/projects/$*.sh
