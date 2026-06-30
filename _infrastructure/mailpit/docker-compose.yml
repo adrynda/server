@@ -1,0 +1,22 @@
+services:
+  mailpit:
+    image: axllent/mailpit
+    container_name: mailpit
+    restart: unless-stopped
+    volumes:
+      - ./mailpit_data:/data
+    environment:
+      MP_MAX_MESSAGES: 5000
+      MP_DATABASE: /data/mailpit.db
+      MP_SMTP_AUTH_ACCEPT_ANY: 1
+      MP_SMTP_AUTH_ALLOW_INSECURE: 1
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.mailpit.rule=Host(`mailpit.localhost`)"
+      - "traefik.http.routers.mailpit.entrypoints=web"
+      - "traefik.http.routers.mailpit.middlewares=mailpit-auth"
+      - "traefik.http.middlewares.mailpit-auth.basicauth.users=admin:$$2y$$05$$CNGZ3x5LIbcmPnoQoSMKfOmgNbPwgSvtHgkIJyIihp7rgTXjzoJS."
+      - "traefik.http.services.mailpit.loadbalancer.server.port=8025"
+      - "traefik.docker.network=server"
+    networks:
+      - server
