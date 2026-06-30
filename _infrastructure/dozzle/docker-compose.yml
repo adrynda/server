@@ -1,0 +1,21 @@
+services:
+  dozzle:
+    image: amir20/dozzle:latest
+    container_name: dozzle
+    restart: unless-stopped
+    volumes:
+      - /var/run/docker.sock:/var/run/docker.sock:ro
+      - dozzle_data:/data
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.dozzle.rule=Host(`dozzle.localhost`)"
+      - "traefik.http.routers.dozzle.entrypoints=web"
+      - "traefik.http.routers.dozzle.middlewares=dozzle-auth"
+      - "traefik.http.middlewares.dozzle-auth.basicauth.users=admin:$$2y$$05$$CNGZ3x5LIbcmPnoQoSMKfOmgNbPwgSvtHgkIJyIihp7rgTXjzoJS."
+      - "traefik.http.services.dozzle.loadbalancer.server.port=8080"
+      - "traefik.docker.network=server"
+    networks:
+      - server
+
+volumes:
+  dozzle_data:

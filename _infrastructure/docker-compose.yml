@@ -4,6 +4,7 @@ include:
   # - db/docker-compose.yml   # odkomentuj jeśli potrzebujesz bazy ogólnej
   - portainer/docker-compose.yml
   - mailpit/docker-compose.yml
+  - dozzle/docker-compose.yml
 
 networks:
   server:
