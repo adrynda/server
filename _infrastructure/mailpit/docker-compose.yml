@@ -4,7 +4,7 @@ services:
     container_name: mailpit
     restart: unless-stopped
     volumes:
-      - ./mailpit_data:/data
+      - mailpit_data:/data
     environment:
       MP_MAX_MESSAGES: 5000
       MP_DATABASE: /data/mailpit.db
@@ -20,3 +20,6 @@ services:
       - "traefik.docker.network=server"
     networks:
       - server
+
+volumes:
+  mailpit_data:
