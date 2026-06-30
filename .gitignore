@@ -4,5 +4,6 @@ node_modules/
 vendor/
 .DS_Store
 projects/*
-.idea
+.idea/
 CLAUDE.md
+.cladue/

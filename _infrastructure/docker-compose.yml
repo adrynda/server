@@ -2,6 +2,7 @@ include:
   - traefik/docker-compose.yml
   - adminer/docker-compose.yml
   # - db/docker-compose.yml   # odkomentuj jeśli potrzebujesz bazy ogólnej
+  - portainer/docker-compose.yml
 
 networks:
   server:
