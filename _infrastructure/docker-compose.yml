@@ -4,6 +4,6 @@ include:
   # - db/docker-compose.yml   # odkomentuj jeśli potrzebujesz bazy ogólnej
 
 networks:
-  web:
-    name: web
+  server:
+    name: server
     driver: bridge

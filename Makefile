@@ -31,6 +31,10 @@ projects-build-%:
 projects-up-%:
 	./scripts/projects/up.sh $*
 
+.PHONY: projects-down-%
+projects-down-%:
+	./scripts/projects/down.sh $*
+
 #.PHONY: projects-%
 #projects-%:
 #	./scripts/projects/$*.sh

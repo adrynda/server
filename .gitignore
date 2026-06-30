@@ -5,3 +5,4 @@ vendor/
 .DS_Store
 projects/*
 .idea
+CLAUDE.md
