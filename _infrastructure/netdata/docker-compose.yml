@@ -24,11 +24,11 @@ services:
       - /var/log:/host/var/log:ro
       - /var/run/docker.sock:/var/run/docker.sock:ro
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.netdata.rule=Host(`netdata.localhost`)"
-      - "traefik.http.routers.netdata.entrypoints=web"
-      - "traefik.http.routers.netdata.middlewares=netdata-auth"
-      - "traefik.http.middlewares.netdata-auth.basicauth.users=admin:$$2y$$05$$CNGZ3x5LIbcmPnoQoSMKfOmgNbPwgSvtHgkIJyIihp7rgTXjzoJS."
+      - traefik.enable=true
+      - traefik.http.routers.netdata.rule=Host(`netdata.localhost`)
+      - traefik.http.routers.netdata.entrypoints=web
+      - traefik.http.routers.netdata.middlewares=netdata-auth
+      - traefik.http.middlewares.netdata-auth.basicauth.users=admin:$$2y$$05$$CNGZ3x5LIbcmPnoQoSMKfOmgNbPwgSvtHgkIJyIihp7rgTXjzoJS.
       # Netdata działa w network_mode: host, więc nie jest podpięty do żadnej
       # sieci Dockera - Traefik nie może go znaleźć przez zwykłe auto-discovery
       # po porcie. Dlatego wskazujemy mu bezpośrednio adres URL hosta:

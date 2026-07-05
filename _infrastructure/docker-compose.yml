@@ -5,7 +5,7 @@ include:
   - portainer/docker-compose.yml
 #  - mailpit/docker-compose.yml
   - dozzle/docker-compose.yml
-  - netdata/docker-compose.yml
+#  - netdata/docker-compose.yml
 
 networks:
   server:

@@ -35,9 +35,11 @@ projects-up-%:
 projects-down-%:
 	./scripts/projects/down.sh $*
 
-.PHONY: reset
-reset: projects-down-dev docker-down docker-build projects-build-dev
+.PHONY: rebuild
+rebuild: projects-down-dev docker-down docker-build projects-build-dev
 
 #.PHONY: projects-%
 #projects-%:
 #	./scripts/projects/$*.sh
+
+#docker stop $(docker ps -q)

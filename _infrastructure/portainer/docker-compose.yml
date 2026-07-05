@@ -6,10 +6,10 @@ services:
     command: --admin-password='$$2y$$05$$CNGZ3x5LIbcmPnoQoSMKfOmgNbPwgSvtHgkIJyIihp7rgTXjzoJS.'
     #    docker run --rm httpd:2.4-alpine htpasswd -nbB admin "haslo" | cut -d ":" -f 2
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.portainer.rule=Host(`portainer.localhost`)"
-      - "traefik.http.services.portainer.loadbalancer.server.port=9000"
-      - "traefik.docker.network=server"
+      - traefik.enable=true
+      - traefik.http.routers.portainer.rule=Host(`portainer.localhost`)
+      - traefik.http.services.portainer.loadbalancer.server.port=9000
+      - traefik.docker.network=server
     networks:
       - server
     volumes:

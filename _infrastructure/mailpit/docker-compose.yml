@@ -11,13 +11,13 @@ services:
       MP_SMTP_AUTH_ACCEPT_ANY: 1
       MP_SMTP_AUTH_ALLOW_INSECURE: 1
     labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.mailpit.rule=Host(`mailpit.localhost`)"
-      - "traefik.http.routers.mailpit.entrypoints=web"
-      - "traefik.http.routers.mailpit.middlewares=mailpit-auth"
-      - "traefik.http.middlewares.mailpit-auth.basicauth.users=admin:$$2y$$05$$CNGZ3x5LIbcmPnoQoSMKfOmgNbPwgSvtHgkIJyIihp7rgTXjzoJS."
-      - "traefik.http.services.mailpit.loadbalancer.server.port=8025"
-      - "traefik.docker.network=server"
+      - traefik.enable=true
+      - traefik.http.routers.mailpit.rule=Host(`mailpit.localhost`)
+      - traefik.http.routers.mailpit.entrypoints=web
+      - traefik.http.routers.mailpit.middlewares=mailpit-auth
+      - traefik.http.middlewares.mailpit-auth.basicauth.users=admin:$$2y$$05$$CNGZ3x5LIbcmPnoQoSMKfOmgNbPwgSvtHgkIJyIihp7rgTXjzoJS.
+      - traefik.http.services.mailpit.loadbalancer.server.port=8025
+      - traefik.docker.network=server
     networks:
       - server
 
