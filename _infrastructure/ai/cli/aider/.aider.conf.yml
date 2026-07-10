@@ -1,0 +1,20 @@
+# Wzorce plików do ignorowania (oszczędność tokenów)
+ignore-patterns:
+  - "node_modules"
+  - ".git"
+  - "venv"
+  - "__pycache__"
+  - "*.pyc"
+  - "dist"
+  - "build"
+  - ".env"
+  - "*.log"
+  - "*.lock"
+  - "*.sqlite"
+  - "*.db"
+  - "var/"
+  - "vendor/"
+
+# Optymalizacja dla 6 GB VRAM
+map-tokens: 2048
+edit-format: diff

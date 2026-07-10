@@ -1,0 +1,5 @@
+include:
+  - cli/aider/docker-compose.yaml
+  - engine/ollama/docker-compose.yaml
+  - search/searxng/docker-compose.yaml
+  - ui/open-webui/docker-compose.yaml

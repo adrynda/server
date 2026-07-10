@@ -1,0 +1,27 @@
+services:
+  # ═══════════════════════════════════════
+  # Silnik AI (Ollama)
+  # ═══════════════════════════════════════
+  ollama:
+    image: ollama/ollama
+    container_name: ollama
+    ports:
+      - "11434:11434"
+    volumes:
+      - ./ollama_data:/root/.ollama
+    restart: unless-stopped
+    deploy:
+      resources:
+        reservations:
+          devices:
+            - driver: nvidia
+              count: all
+              capabilities: [gpu]
+    entrypoint: /bin/sh
+    command: >
+      -c "ollama serve &
+      sleep 5 &&
+      echo '=== Pobieranie modelu (tylko za pierwszym razem) ===' &&
+      ollama pull qwen2.5-coder:7b &&
+      echo '=== Model gotowy ===' &&
+      wait"

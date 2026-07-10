@@ -1,0 +1,12 @@
+services:
+  # ═══════════════════════════════════════
+  # Wyszukiwarka internetowa (prywatna, lokalna)
+  # ═══════════════════════════════════════
+  searxng:
+    image: searxng/searxng:latest
+    container_name: searxng
+    ports:
+      - "8888:8080"
+    volumes:
+      - ./searxng:/etc/searxng:rw
+    restart: unless-stopped
