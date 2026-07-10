@@ -1,0 +1,23 @@
+# Wzorce bez wiodącego "/" działają rekurencyjnie (na każdej głębokości),
+# więc jeden ten plik wystarcza dla wszystkich projects/*.
+#
+# Gdyby kiedyś projekt miał potrzebować własnych, "lokalnych" reguł
+# (np. dziwny wygenerowany katalog specyficzny dla tego repo):
+# 1. w docker-compose.yaml aidera zmień --aiderignore /workspace/.aiderignore
+#    na ścieżkę względną: --aiderignore .aiderignore
+# 2. uruchamiaj wtedy aidera z workdir ustawionym na dany projekt, np.:
+#    docker compose --profile cli run --workdir /workspace/projects/<nazwa> aider
+# 3. dodaj plik projects/<nazwa>/.aiderignore z regułami tylko dla niego
+#    (uwaga: bez --workdir aider szukałby wtedy .aiderignore w /workspace,
+#    więc root też musiałby go mieć)
+
+_infrastructure/ai/engine/ollama/ollama_data/
+_infrastructure/ai/ui/open-webui/webui_data/
+vendor/
+var/
+node_modules/
+.git/
+*.log
+*.lock
+*.sqlite
+*.db

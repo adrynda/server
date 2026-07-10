@@ -12,7 +12,7 @@ search:
     - json    # WAŻNE - Open WebUI wymaga formatu JSON
 
 server:
-  secret_key: "zmien-ten-klucz-na-losowy-ciag"
+  secret_key: "eynuVcb9lguk2NVPLpvo3vWOXvq7Gz8"
   bind_address: "0.0.0.0"
   port: 8080
 

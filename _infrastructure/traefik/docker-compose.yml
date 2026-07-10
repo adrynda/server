@@ -16,4 +16,9 @@ services:
       - traefik.http.routers.dashboard.service=api@internal
       - traefik.http.routers.dashboard.entrypoints=web
     networks:
-      - server
+      - traefik
+
+networks:
+  traefik:
+    name: traefik
+    driver: bridge

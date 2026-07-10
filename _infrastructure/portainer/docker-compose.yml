@@ -9,9 +9,9 @@ services:
       - traefik.enable=true
       - traefik.http.routers.portainer.rule=Host(`portainer.localhost`)
       - traefik.http.services.portainer.loadbalancer.server.port=9000
-      - traefik.docker.network=server
+      - traefik.docker.network=traefik
     networks:
-      - server
+      - traefik
     volumes:
       - /var/run/docker.sock:/var/run/docker.sock
       - portainer_data:/data

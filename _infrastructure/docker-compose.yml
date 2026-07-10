@@ -6,6 +6,7 @@ include:
 #  - mailpit/docker-compose.yml
   - dozzle/docker-compose.yml
 #  - netdata/docker-compose.yml
+#  - ai/docker-compose.yaml # webuid sucks, aider is ok but claude easier
 
 networks:
   server:

@@ -38,6 +38,17 @@ projects-down-%:
 .PHONY: rebuild
 rebuild: projects-down-dev docker-down docker-build projects-build-dev
 
+# Aider na całym server/ (bez gita, tylko ręczne /add) - configi infry + wszystkie projekty
+.PHONY: aider
+aider:
+	cd _infrastructure && docker compose run --rm aider
+
+# Aider z repo-mapą, ograniczony do jednego projektu (jego własne repo gita)
+# użycie: make aider-project-symfony.messenger
+.PHONY: aider-project-%
+aider-project-%:
+	cd _infrastructure && docker compose run --rm --workdir /workspace/projects/$* aider-project
+
 #.PHONY: projects-%
 #projects-%:
 #	./scripts/projects/$*.sh

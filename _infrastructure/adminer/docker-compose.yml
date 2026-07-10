@@ -6,9 +6,9 @@ services:
       - traefik.enable=true
       - traefik.http.routers.adminer.rule=Host(`adminer.localhost`)
       - traefik.http.services.adminer.loadbalancer.server.port=8080
-      - traefik.docker.network=server
+      - traefik.docker.network=traefik
     networks:
-      - server
+      - traefik
       - adminer
 networks:
   adminer:

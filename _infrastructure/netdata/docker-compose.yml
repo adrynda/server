@@ -35,17 +35,17 @@ services:
       - "traefik.http.services.netdata.loadbalancer.server.url=http://host.docker.internal:19999"
       #
       # PIERWOTNA WERSJA (dla kontenera BEZ network_mode: host, podpiętego
-      # do sieci "server") - gdybyś chciał wrócić do tamtego podejścia,
+      # do sieci "traefik") - gdybyś chciał wrócić do tamtego podejścia,
       # zakomentuj linijkę z .url powyżej i odkomentuj te dwie:
       # - "traefik.http.services.netdata.loadbalancer.server.port=19999"
-      # - "traefik.docker.network=server"
+      # - "traefik.docker.network=traefik"
 
-    # Netdata jest w trybie host, więc NIE podpinamy go do sieci "server"
+    # Netdata jest w trybie host, więc NIE podpinamy go do sieci "traefik"
     # (nie da się łączyć network_mode: host z networks: jednocześnie).
     # PIERWOTNA WERSJA - odkomentuj poniższe, jeśli zrezygnujesz z
     # network_mode: host (patrz uwaga powyżej):
     # networks:
-    #   - server
+    #   - traefik
 
   # Na WSL2 (Docker Desktop) host.docker.internal zwykle działa od razu.
   # Jeśli Traefik nie może się połączyć (błąd "no such host" / connection

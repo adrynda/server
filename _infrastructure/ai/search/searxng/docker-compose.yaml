@@ -5,8 +5,14 @@ services:
   searxng:
     image: searxng/searxng:latest
     container_name: searxng
-    ports:
-      - "8888:8080"
     volumes:
-      - ./searxng:/etc/searxng:rw
+      - ./settings.yml:/etc/searxng/settings.yml:rw
     restart: unless-stopped
+    labels:
+      - traefik.enable=true
+      - traefik.http.routers.searxng.rule=Host(`searxng.localhost`)
+      - traefik.http.routers.searxng.entrypoints=web
+      - traefik.http.services.searxng.loadbalancer.server.port=8080
+      - traefik.docker.network=traefik
+    networks:
+      - traefik
