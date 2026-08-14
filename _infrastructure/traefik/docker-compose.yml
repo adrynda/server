@@ -1,9 +1,10 @@
 services:
   traefik:
-    build: .
+    image: traefik:latest
     restart: always
     command:
       - --providers.docker=true
+      - --providers.docker.constraints=!Label(`traefik.internal`, `true`)
       - --entrypoints.web.address=:80
       - --api.dashboard=true
     ports:
@@ -16,9 +17,9 @@ services:
       - traefik.http.routers.dashboard.service=api@internal
       - traefik.http.routers.dashboard.entrypoints=web
     networks:
-      - traefik
+      - traefik-net
 
 networks:
-  traefik:
-    name: traefik
+  traefik-net:
+    name: traefik-net
     driver: bridge

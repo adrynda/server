@@ -38,6 +38,13 @@ projects-down-%:
 .PHONY: rebuild
 rebuild: projects-down-dev docker-down docker-build projects-build-dev
 
+.PHONY: docker-build-all
+docker-build-all: docker-build projects-build-dev
+
+.PHONY: docker-down-all
+docker-down-all:
+	docker stop $$(docker ps -q)
+
 # Aider na całym server/ (bez gita, tylko ręczne /add) - configi infry + wszystkie projekty
 .PHONY: aider
 aider:

@@ -13,9 +13,9 @@ services:
 #      - traefik.http.routers.dozzle.middlewares=dozzle-auth
 #      - traefik.http.middlewares.dozzle-auth.basicauth.users=admin:$$2y$$05$$CNGZ3x5LIbcmPnoQoSMKfOmgNbPwgSvtHgkIJyIihp7rgTXjzoJS.
       - traefik.http.services.dozzle.loadbalancer.server.port=8080
-      - traefik.docker.network=traefik
+      - traefik.docker.network=traefik-net
     networks:
-      - traefik
+      - traefik-net
 
 volumes:
   dozzle_data:
